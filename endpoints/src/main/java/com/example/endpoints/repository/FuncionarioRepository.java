@@ -1,4 +1,12 @@
 package com.example.endpoints.repository;
 
-public class FuncionarioRepository {
+import com.example.endpoints.model.FuncionarioModel;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
+
+@Repository
+public interface FuncionarioRepository extends JpaRepository<FuncionarioModel, Long> {
+    Optional<FuncionarioModel> findByMatricula(String matricula);
 }
